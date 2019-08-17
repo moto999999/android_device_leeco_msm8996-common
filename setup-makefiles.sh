@@ -39,7 +39,7 @@ fi
 setup_vendor "$DEVICE_COMMON" "$VENDOR" "$LINEAGE_ROOT" true
 
 # Copyright headers and guards
-write_headers "zl1 x2"
+write_headers "zl1 x2 x10"
 
 # Common QC blobs
 write_makefiles "$MY_DIR"/proprietary-files-qc.txt
