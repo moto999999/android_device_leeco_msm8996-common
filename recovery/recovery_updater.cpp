@@ -50,6 +50,7 @@
 #define DEVINFO_ZL0     "le_zl0"
 #define DEVINFO_ZL1     "le_zl1"
 #define DEVINFO_X2      "le_x2"
+#define DEVINFO_X10     "le_x10"
 
 /* Boyer-Moore string search implementation from Wikipedia */
 
@@ -227,6 +228,8 @@ Value * GetDeviceVariantFn(const char *name, State *state, const std::vector<std
 
     if (strncmp(devinfo, DEVINFO_X2, strlen(DEVINFO_X2)) == 0)
         return StringValue(strdup("x2"));
+    if (strncmp(devinfo, DEVINFO_X10, strlen(DEVINFO_X10)) == 0)
+        return StringValue(strdup("x10"));
 
 err_ret:
     return StringValue(strdup("unknown"));
