@@ -149,6 +149,16 @@ void init_target_properties()
             property_set("ro.telephony.default_network", "10,10");
             unknownDevice = 0;
         }
+        else if (!strncmp(device.c_str(), "le_x10", 6)) {
+            // This is LEX850
+            property_override_dual("ro.product.device", "ro.product.vendor.device", "le_x10");
+            property_override_dual("ro.product.model", "ro.product.vendor.model", "LEX850");
+            property_override_dual("ro.product.name", "ro.product.vendor.name", "LeMax3");
+            // Dual SIM
+            property_set("persist.radio.multisim.config", "dsds");
+            property_set("ro.telephony.default_network", "10,10");
+            unknownDevice = 0;
+        }
     }
     else {
         LOG(ERROR) << "Unable to read DEVINFO from " << DEVINFO_FILE;

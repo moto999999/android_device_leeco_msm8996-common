@@ -9,6 +9,14 @@ DEVINFO=$(cat /dev/block/sde21)
 echo "DEVINFO: ${DEVINFO}"
 
 case "$DEVINFO" in
+  le_x10*)
+    # Move firmware
+    mv -f /vendor/firmware/le_x10/* /vendor/firmware/
+
+    # Move sensors config
+    mv -f /vendor/etc/sensors/sensor_def_qcomdev_x10.conf /vendor/etc/sensors/sensor_def_qcomdev.conf 
+    ;;
+
   le_zl0*)
     # Move firmware
     mv -f /vendor/firmware/zl0/* /vendor/firmware/
@@ -27,6 +35,7 @@ case "$DEVINFO" in
     rm -rf /vendor/app/SmartcardService
     ;;
   *)
+
     echo "Nothing to do!"
     ;;
 esac
